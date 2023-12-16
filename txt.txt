@@ -1,0 +1,4 @@
+1. 连接mongodb mongoose.js
+2. 创建schema 、 crud
+3. 修饰符
+4. 静态方法、实例方法
