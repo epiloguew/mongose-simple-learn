@@ -1,15 +1,22 @@
 {
   "name": "mongoose-simple-learn",
   "version": "1.0.0",
-  "description": "",
+  "description": "一个简单的基于nodejs、express、mongooes的后台学习",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev":"nodemon"
   },
-  "keywords": [],
+  "keywords": [
+    "nodejs",
+    "express",
+    "mongoose",
+    "simple"
+  ],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
     "mongoose": "^8.0.3"
   },
   "devDependencies": {

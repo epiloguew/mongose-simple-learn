@@ -1,21 +1,27 @@
-const user = require("./schema");
+const express = require("express");
+const cors = require("cors");
+const app = express();
+const config = require("./config.js");
+const db = require("./app/db/connect.js");
+const corsOptions = {
+    origin: "",
+};
 
-/**
- * 1. 查询所有数据
- */
-user.findAll().then((res) => {
-    console.log("all documents", res);
-});
+//middleware
+app.use(cors(corsOptions));
+//content-type - application/json
+app.use(express.json());
+//content-type - application/x-www-form-urlencoded
+app.use(express.json());
+//static
+app.use("/", express.static("static"));
 
-/**
- * 2. 添加数据
- */
+//route
+const money = require("./app/route/money.js");
+app.use("/" + money.path, money.router);
 
-const userObject = new user({
-    name: "1",
-    age: 10,
-});
-
-user.save().then(() => {
-    console.log("Add New data", res);
+//connect
+db();
+app.listen(config.port, () => {
+    console.log(`Server is running on port ${config.port}.`);
 });
